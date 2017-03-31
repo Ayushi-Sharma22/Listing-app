@@ -1,0 +1,21 @@
+<div id="nav">
+	<div class="container-fluid">
+		<div class="row">
+			<nav class="navbar">
+			<center>
+				<div class="btn-group">
+					<div class="btn-group" ng-repeat="nav in navbuttons">
+					    <button type="button" class="btn" ui-sref='{{nav.ref}}'>{{nav.title}} </button>
+					    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+						    <i class="fa fa-angle-down"></i>
+						</button>
+					    <ul class="dropdown-menu" role="menu">
+					      	<li ng-repeat="x in nav.list"><a href="#">{{x.name}}</a></li>
+					    </ul>
+				  	</div>
+				</div>
+			</center>
+			</nav>
+		</div>
+	</div>
+</div>

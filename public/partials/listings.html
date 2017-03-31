@@ -1,0 +1,69 @@
+<div class="list-main">
+	<div header-list></div>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3 col-md-3 col-lg-3">
+					<div class="left-sidebar">
+						<h2>Category</h2>
+						<div class="item-category">
+							<ul class="list-unstyled">
+								<li ng-click='sortBy=""'>All</li>
+								<li ng-click='sortBy="Superior"'>Superior</li>
+								<li ng-click='sortBy="Executive"'>Executive</li>
+								<li ng-click='sortBy="Deluxe"'>Deluxe</li>
+							</ul>
+						</div>
+						<div class="price-range"><!--price-range-->
+							<h2>Price Range</h2>
+							<div class="item-category">
+								<ul class="list-unstyled">
+									<li ng-click='reverse = "false"'>Low to High</li>
+									<li ng-click='reverse = "true"'>High to Low</li>
+								</ul>
+							</div>
+						</div><!--/price-range-->
+					</div>
+				</div>
+				
+				<div class="col-sm-9 col-md-9 col-lg-9">
+					<div class="featured_items"><!--featured_items-->
+						<h2 class="title text-center">Featured Items</h2>
+						<div class="pull-right main_search">
+							<div class="pull-right search_box">
+								<input type="text" placeholder="Search" ng-model='searchText'/>
+							</div>
+						</div>
+						<div class="col-sm-4" ng-repeat='data in listings | filter: sortBy | filter: searchText | orderBy: "price" :reverse | pagination: curPage * pageSize | limitTo: pageSize'>
+							<div id="product-image-wrapper">
+								<div class="single-products">
+									<div class="productinfo text-center">
+										<img ng-src="{{data.picture}}" alt="" />
+										<h2>Rs. {{data.price}}</h2>
+										<p>{{data.name}}</p>
+										<p>{{data.category}}</p>
+										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!--features_items-->
+					<div class="pagination-div" ng-show="listings.length">
+							<ul class="list-unstyled list-inline text-center">
+								 <li>
+								  	<button type="button" ng-class="{'fade-btn' : curPage == 0}" class="search-btn" ng-disabled="curPage == 0" ng-click="curPage=curPage-1">PREV</button>
+								 </li>
+								 <li>
+								 	<span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
+								 </li>
+								 <li>
+								 	<button type="button" ng-class="{'fade-btn' : curPage >= listings.length/pageSize - 1}" class="search-btn" ng-disabled="curPage >= listings.length/pageSize - 1" ng-click="curPage = curPage+1">NEXT</button>
+								 </li>
+							</ul>
+						</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div footer></div>
+</div>
