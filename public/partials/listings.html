@@ -34,7 +34,7 @@
 								<input type="text" placeholder="Search" ng-model='searchText'/>
 							</div>
 						</div>
-						<div class="col-sm-4" ng-repeat='data in listings | filter: sortBy | filter: searchText | orderBy: "price" :reverse | pagination: curPage * pageSize | limitTo: pageSize'>
+						<div class="col-sm-4 col-md-4 col-lg-4" ng-repeat='data in listings | filter: sortBy | filter: searchText | orderBy: "price" :reverse | pagination: curPage * pageSize | limitTo: pageSize'>
 							<div id="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
