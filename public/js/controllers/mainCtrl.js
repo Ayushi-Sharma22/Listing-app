@@ -6,4 +6,5 @@ angular.module('MainCtrl', [])
     // 	$scope.listings = listingService.getListings();
     // 	console.log($scope.listings);
     // }
+
 });
